@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title></title>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+
+        <script>
+            var select = document.getElementById("b1").innerHTML;
+            var select_test = $(".parent").html();
+            //기본적으로 querySelectAll 기능을 하는데 뒤에 메서드를 써서 특정 기능 수행시에는 처음 하나만 선택해서 보여준다
+            //html() == innerHTML() html()도 인자를 넣어 보내면 바뀐다
+
+            //배열에서 첫번째가 아닌 인덱스 설정하고 싶다
+            var select_test = $($(".parent")[1]).html();
+            //jQuery는 $() 를 사용해야 이용가능
+            console.log(select_test);
+
+            var select = document.getElementsByClassName("s")[0].innerText;
+
+            var select_test = $("input[name=s]").val();
+            //name의 값이 s인것 's' 이렇게 안씀
+            //.val() 원래있던 value값을 가져온다.
+            //.val("새로넣을값") value값 바꿔준다.
+
+
+            console.log($(".parent").children());
+
+            console.log($(".parent").children(".child1"));
+            //parent의 자식태그중에 child1 클래스인 것만 출력
+
+            console.log($($(".parent").children()[1]).html());
+
+            console.log($(".child1").parent()); //바로 위 부모만
+            console.log($(".child1").parents()); //조상까지 다
+            
+
+
+            var select = document.getElementsByName("name")[1].value;
+            var select = document.getElementsByTagName("ha")[0].innerHTML;
+
+            var select = document.querySelectorAll( "abc > a" );
+                var select = document.querySelectorAll( ".a" )[1].innerHTML;
+
+            var children = document.getElementsByTagName("abc")[0].children[0].children;
+
+            var parent = document.getElementsByClassName("child1")[0].parentElement;
+        </script>
+        
+    </body>
+
+</html>

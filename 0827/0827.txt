@@ -1,0 +1,67 @@
+자바스크립트와 제이쿼리
+
+자바스크립트에서의 선택자
+1. id
+2. class
+3. name
+
+<script>
+    var select = document.getElementById("아이디명").innerHTML.trim();
+    console.log(select);
+</script>
+
+trim() : 양끝 공백 제거해줌
+innerHTML 하면 공백이나 띄어쓰기 다 포함해서 출력하므로
+
+var select = document.getElementsByClassName("클래스명");
+console.log(select);
+
+클래스는 id와 다르게 같은 클래스명으로 여러개 설정이 가능하므로 배열로 출력함
+배열로 나오므로 getElementsByClassName("")[인덱스값].메서드 해줘야 출력 가능
+
+innerText : html 코드말고 내용만 뽑음
+
+var select = document.getElementsByName("네임명")[인덱스].value;
+
+var select = document.getElementsByTagName("태그명");
+
+--------------------------------------------
+
+var select = document.querySelector("태그/.클래스/#아이디 명") //제일 처음에 있는 하나만 반환 따라서 인덱스사용하지 않아도됨
+var select = document.querySelectorAll("") //위와 동일하게 쓰는데 모두 반환이라 인덱스 사용
+
+-------------------------------------
+div
+
+div.a
+
+div .a : div태그 안 후손들 중에서 a클래스를 가진 아이들만 (자식아님)
+
+div > .a : div태그의 자식태그 중에서 a클래스
+
+-----------------------------------------------
+자식태그 선택하기
+
+var children document.getElementsByClassName("부모클래스명")[].children;
+//자식만 나온다
+
+var children document.getElementsByClassName("부모클래스명")[].childNodes;
+//자식 및 중간에 있는 공백도 text로 리턴. 별로 사용은 안함
+
+-----------------------------------------------
+부모태그 선택
+
+var parent = document/getElementsByClassName("자식클래스명").parentElement;
+//바로 위에 있는 부모태그 선택
+
+---------------------------------------------
+jQuery
+
+bootstrap separate 불러와도 좋음
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+
+
+
+
+$("")

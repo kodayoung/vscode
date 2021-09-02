@@ -1,0 +1,73 @@
+한개의 프로젝트는 한개의 database를 가지며
+생성한 app별로 하나의 models.py 파일이 존재하므로
+app개수만큼 프로젝트에 테이블이 존재할 수 있음
+
+
+ORM : Object Relational Mapping
+코드와 실DB를 매핑
+
+sql문 == 쿼리문 == 질의문 : CRUD 실시하기 위한 명령문
+
+C insert
+R select
+U update
+D delete
+
+-----------------------------------------------------------
+ORM : Object Relational Mapping
+코드와 실DB를 매핑
+
+명령어 작성하면 그 의미에 해당하는 쿼리문으로 매핑시켜서 수행해줌
+DB가 중간에 바뀐다고 할지라도 내가 작성한 코드를 바꿀필요가 없음
+----------------------------------------------------------------
+회원가입 생성
+가입 검색 수정 삭제
+
+1. 회원가입 폼 만들기
+<form>
+클라이언트(웹페이지)가 서버로 정보를 전송하기 위한 방법 중 하나
+
+<form>
+	<input type=""> #type 속성값 : text, password, radio, checkbox 안닫아도됨
+	<select>
+	<textarea>
+	<button>
+</form>
+-----------------------------------------------------------------------
+req.보내진정보방식.get(name속성값) : 넘어온 값 가져오기
+
+--------------------------------------------
+로컬파일에서 입력내용 전송
+rec함수로 도착
+d.html로 연결
+
+------------------------
+{% csrf_token %}
+접근자격있음을 넣어줘야 로컬 파일에서도 서버에 접속하려면 form 안에 필수로 넣어줘야함
+{% %} : 장고 template 언어. 안에 코딩이 가능함
+
+template 폴더에 넣어줘야함.
+
+<form action="http://118.67.133.61:8000/dontgiveup/receive" method="post">
+	{% csrf_token %}
+
+	<input type="text" name="my_info">
+
+	<button>전송</button>
+</form>
+
+라우팅
+member에 send 라우팅
+view에 send생성
+
+req, b.html
+
+render의 역할은 코드 내에 장고코드가 있으면 그것도 해석해서 적절하게 파일을 생성해준다
+
+
+
+
+1. urls
+2. member.url
+3. views
+4. template

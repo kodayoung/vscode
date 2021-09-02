@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+</html>
+
+<body>
+    <form action="">
+        인풋 타입 텍스트 : <input type="text" name="id" value="1">
+        인풋 타입 패스워드 : <input type="password" name="pwd" value="2">
+        인풋 타입 히든 : <input type="hidden" name="hidden" value="3">
+        인풋 타입 라디오 :
+        <input type="radio" name="hobby" value="4"> 농구
+        <input type="radio" name="hobby" value="5"> 축구
+        인풋 타입 체크박스 :
+        <input type="checkbox" name="subject" value="6"> 음악
+        <input type="checkbox" name="subject" value="7"> 미술
+        셀렉트 
+        <select name="gender">
+            <option value="m">남성</option>
+            <option value="w">여성</option>
+        </select>
+
+        내용입력칸 :
+        <textarea name="text"></textarea>
+        타입 서브밋 버튼 :
+        <button type="submit"></button>
+        타입 버튼 버튼 :
+        <button type="button"></button>
+    </form>
+</body>
+
+<!-- 
+    폼태그 속성
+    action : 정보를 보낼 곳의 주소. default : 자기자신
+    method : 전송방식 GET/POST default : GET
+    
+    GET : 정보를 URL에 붙여서 전송하는 방식
+    >> 방식 : 정보보낼곳의URL ? 폼요소1name = 폼요소1value & ..
+    POST : 정보를 노출되지 않도록 전송하는 방식
+    >> 방식 : 안보여짐
+
+    필요성
+    GET : 검색결과같은거를 다른사람들과 공유가 가능함
+    POST : 보안성이 좋음
+
+    폼태그의 모든 요소에는 name,value속성 가져야함
+    name 속성 : 서버로 넘겼을 때 name에 해당하는 내용이라는거 알려줌
+    value 속성 : 서버에게 넘어가는 값(default 설정도 가능)
+    name속성 작성안하면 서버측으로 내용이 안넘어감.
+    value속성 작성안하면 공란으로 넘어가거나 option 내용이 넘어감
+
+    + 속성 : placeholder > 흐리게 써지는 설명을 위한 글씨. 사용자가 내용을 넣으면 사라짐.
+
+
+    인풋 타입 텍스트 : 작성내용노출됨
+    인풋 타입 패스워드 : 작성내용*로노출
+    라디오 : 동일 name속성에 대해 여러가지 중 한가지만 선택 가능. 선택내용 취소불가
+    체크박스 : 동일 name속성에 대해 여러가지 선택 가능
+    셀렉트 : 라디오와 역할은 동일
+    텍스트에어리어 : value속성 작성하지않고 내용으로 작성 +rows속성, 가로길이는 css로 설정
+    
+    버튼 : default : submit
+    서브밋 버튼 : 폼 내용 전체를 서버로 전송하기 위한 버튼. 폼에는 하나의 서브밋버튼이 있는게 좋음
+    버튼 버튼 : 하고싶은 동작을 하기위한 버튼 ex) alert
+
+-->
