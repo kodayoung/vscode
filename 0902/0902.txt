@@ -30,5 +30,120 @@ Q. views.py alert에 상응하는 파이썬 처리
 
 웹브라우저는 서버가 전달한 것을 받고 해석 및 실행한다
 
-Q. views.py alert에 상응하는 파이썬 처리
-alert는 
+---------------------------------------------------
+
+DateTimeField는 admin페이지 어디서 확인할 수 있나요?
+
+views파일에서 req.POST.get(‘name’)이 여러 함수에 반복적으로 쓰였는데 이것을 변수 선언해서 쓰려면 어떻게 구문을 써야하나요?
+
+210831 강의에서 dongiveup프로젝트명을 바꾼후 연관된 파일에서 일일이 수정했는데, 자동으로 바뀌는 방법이 있을까요?
+
+
+python3 manage.py makemigrations
+python3 manage.py migrate
+# 변경사항에 대한 마이그레이션을 만든다. (DB 저장)
+
+git(소스형상관리)
+
+디비형상관리 : 디비 구조만 형상관리하기떄문에
+주로 회사에선 디비형상관리보단 디비 백업을 해버림
+
+장고에선 디비형상관리를 기본으로 가지고 있음
+그게 makemigrations : DB형상관리에 대한 보고서를 작성한다
+ex) 20210902 User테이블을 삭제할것임.
+member테이블을 생성할것임. ..
+라는 내용의 보고서
+
+migrate하면 보고서 내용 실제로 실행
+
+따라서 models.py 작업하고서 makemigrations하면 그에 대한 내용의 보고서가 생성되고
+migrate까지 해야 확인할 수있음
+
+근데 디비형상관리가 문제인건
+디비 내에서 데이터가 사라지게되면
+예전코드를 다시 불러와도 소용이 없음
+그래서 디비 백업도 같이 해두는것
+
+autotimeadd가 안보이는 이유는
+개발자가 admin에서 변경하지 못하도록 아예 안보이게 처리됨
+
+해결법 : admin.py에
+class UserConfig(admin.ModelAdmin) :
+    readonly_fields = ('registered',)
+
+admin.site.register(User,UserConfig)
+로 내용 변경
+
+--------------------------------------------
+
+post로 데이터 저장은 성공했습니다만, 
+get으로 db의 데이터를 불러오는게 안됩니다.
+(= 브라우저에 값을 띄우는게 안됩니다.)
+
+제가 이 부분 제대로 이해 못하고 있는 것 같습니다
+
+
+integrityError at / dontgiveup / registered 
+not null constraint failed : member_user.useird
+
+해결도중 위와 같은 에러가 나서 
+일단 models.py 에 null = true 를 넣어서 
+에러는 해결했고, 어드민서버에 데이터는 들어가나, 
+브라우저에 값을 띄우는게 안되고 있습니다.
+-----------------------------------
+
+for문 돌리지 않고 queryset 안에 있는 값 뽑아내기
+
+views에서 queryset에서 필요한 내용 인덱스로 하나만 넘기고
+ex) {'logged'=logged_member[0]}
+이런식으로 넘기고서
+
+템플릿에서 logged.username 이런식으로 사용할수있음
+
+-----------------------------------------
+라디오
+name값이 동일하더라도 어차피 같은 name중에서
+하나만 고르는거기 때문에 상관없음
+
+체크박스
+근데 얘는 여러개 넘기기 때문에 
+--------------------------------
+비밀번호 변경 / 회원탈퇴
+
+비밀번호 변경
+update
+변경할 것을 변경한 후에 .save()
+member = Member(userid="아이디",pw="바꿀비번")
+member.save()
+
+
+member = Member.objects.filter("조건")
+member.userid = "새로넣을값"
+member.save()
+
+>> django update 검색
+
+인스턴스 == 하나하나 데이터
+
+pk == primary key
+하나의 컬럼에 대해 해당되는 값 하나 == field
+record == 한 행
+field가 모여서 record
+
+기본키: 하나의 레코드를 다른 레코드와 식별하게 해주기 위한 고유값
+기본키(인덱스)를 잡기위한 열을 따로 둔다.
+우리가 값을 입력하는게 아님
+
+근데 장고는 알아서 만들어줌 pk
+
+get : 갖고올 데이터가 하나임이 확실할때 사용, object를 반환
+filter : queryset반환
+
+
+delete나 save는 하나에 대해서만 작동을 해야함
+만약 한 조건에 대해 여러 데이터를 지우고 싶으면 for문을 돌려야함
+혹은 get 말고 filter에 조건 달면 됨.
+
+
+
+
